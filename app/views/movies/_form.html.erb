@@ -1,0 +1,43 @@
+<%= @f.hidden_field :image_url %>
+<div class="form_right">
+	<p>
+		<label for="title">Title</label><br/>
+		<%= @f.text_field :title%>
+	</p>
+	<p>
+		<label for="summary">Summary</label><br/>
+		<%= @f.text_area :summary, :rows => 4%>
+	</p>
+	<p>
+		<label for="rating">Rating</label><br/>
+		<%= @f.text_field :rating%>
+	</p>
+	<p>
+		<label for="genres">Genres</label><br/>
+		<%= @f.text_field :genres, :value => @genres%>
+	</p>
+	<p>
+		<label for="release">Release</label><br/>
+		<%= @f.text_field :release%>
+	</p>
+	<p>
+		<label for="director">Director</label><br/>
+		<%= @f.text_field :director%>
+	</p>
+	<p>
+		<label for="runtime">Runtime</label><br/>
+		<%= @f.text_field :runtime%>
+	</p>
+	<p>
+		<label for "quality">Media Quality</label><br/>
+		<%= @f.select(:quality, quality_options)%>
+	</p>
+</div>
+<div class="form_left">
+	<center><%= image_tag(@movie.image_url, :style => "padding-right: 10px;") if @movie.image_url%></center>
+</div>
+<div style="clear: both;"><!-- --></div>
+<center>
+	<%= submit_tag 'Save', :class => 'submit'%>
+	<%= link_to("Cancel", movies_path)%>
+</center>

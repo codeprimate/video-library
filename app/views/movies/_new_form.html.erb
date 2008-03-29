@@ -1,0 +1,13 @@
+<!-- :title => movie_data.title,
+:summary => movie_data.summary,
+:director => movie_data.director,
+:release => movie_data.release,
+:image_url => movie_data.image_url,
+:runtime => movie_data.runtime,
+:rating => movie_data.rating -->
+
+<%= error_messages_for :movie %>
+
+<% form_for(@movie) do |@f| %>
+	<%= render :partial => "movies/form"%>
+<% end %>

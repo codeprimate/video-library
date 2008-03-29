@@ -1,0 +1,193 @@
+body { background-color: #fff; color: #333; }
+
+body, p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size:   13px;
+  line-height: 18px;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a { color: #000; }
+a:visited { color: #666; }
+a:hover { color: #fff; background-color:#000; }
+
+.fieldWithErrors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#errorExplanation {
+  width: 300px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+div.uploadStatus {
+  margin: 5px;
+}
+
+div.progressBar {
+  margin: 5px;
+}
+
+div.progressBar div.border {
+  background-color: #fff;
+  border: 1px solid gray;
+  width: 100%;
+}
+
+div.progressBar div.background {
+  background-color: #333;
+  height: 18px;
+  width: 0%;
+}
+
+img.result_thumb {
+	float: left;
+	margin: 5px;
+}
+
+div#search_results {
+	padding: 3px;
+	border: 2px solid #ccc;
+/*	width: 300px;*/
+}
+
+div.search_result {
+	margin: 3px;
+	border: 1px solid #ccc;
+}
+
+div.search_result p {
+	font-size: 1em;
+}
+
+div#content {
+	width: 850px;
+	margin: 0 auto;
+}
+
+form input, form textarea {
+	width: 350px;
+	border: 1px solid #666;
+	padding: 0.2em;
+}
+
+input.submit {
+	width: auto;
+}
+
+label {
+	font-weight: bold;
+}
+
+div#movie_form {
+	width: 530px;
+	margin: 0 auto;
+}
+
+span.list_title {
+	font-weight: bold;
+	font-size: 1.2em;
+	line-height: 1em;
+}
+
+span.list_rating {
+	font-size: 1.2em;
+	font-weight: bold;
+	font-style: italic;
+	color: #666;
+}
+
+span.list_summary {
+	font-size: 0.95em;
+	line-height: 1em;
+}
+
+div#movie_detail {
+	width: 700px; margin: 0 auto;
+}
+
+div#movie_detail_right {
+	float: right; width: 590px;
+}
+
+div#movie_detail_right p {
+	margin: 0.5em;
+	margin-top: 0;
+	line-height: 1.1em;
+}
+
+table tr.header th {
+	font-size: 1.2em;
+	border-bottom: 2px solid #222;
+	text-align: left;
+}
+
+td {
+	border-bottom: 1px solid #ccc;
+}
+
+a.selected {
+	text-decoration: none;
+	color: black;
+}
+
+span.list_added {
+	font-size: 0.8em;
+	font-style: italic;
+}
+
+div.form_right {
+	float: right;
+	width: 400px;
+}
+
+div.form_left {
+	width: 110px;
+	float: left;
+/*	border: 1px dashed #ccc;*/
+	min-height: 100px;
+	padding: 5px;
+}
+
+.tag1 { font-size: 1.0em; }
+.tag2 { font-size: 1.2em; }
+.tag3 { font-size: 1.4em; }
+.tag4 { font-size: 1.6em; }
+
+div#tag_cloud {
+	margin: 10px;
+	font-size: 0.8em;
+	text-align: center;
+}

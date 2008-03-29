@@ -1,0 +1,30 @@
+<h1>New movie</h1>
+
+<%= link_to 'Back to Catalog', movies_path %>
+
+<div  style="float: right; width: 550px; padding-left: 10px; border-left: 1px dashed #666;">
+	<h2>Movie Information</h2>
+	<div id="new_movie" style="padding: 20px;" >
+		<div id="movie_form">
+			<%= render :partial => "movies/new_form"%>
+		</div>
+	</div>
+</div>
+
+<div style="float: left; width: 250px;">
+	<% form_remote_tag :url => search_movie_url do -%>
+		<p><label for="search"><b>Enter Movie Title:</b></label><br>
+		<%= text_field :search, :text, :style => "width: 200px;" %>
+		</p>
+		<%= submit_tag "Search", :style => "width: auto;"%>
+	<% end -%>
+
+	<h3>Search Results</h3>
+	<div id="search_results"></div>
+	
+</div>
+
+
+
+
+

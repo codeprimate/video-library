@@ -1,0 +1,13 @@
+
+
+<div id="movie_form">
+	<h1>Editing <%= @movie.title%></h1>
+	<%= error_messages_for :movie %>
+
+	<% form_for(@movie) do |@f| %>
+		<%= render :partial => "movies/form"%>
+	<% end %>
+
+	<%= link_to 'Show', @movie %> |
+	<%= link_to 'Back', movies_path %>
+</div>

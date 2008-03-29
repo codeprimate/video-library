@@ -1,0 +1,2 @@
+page.replace_html :movie_form , :partial => "movies/new_form"
+# page << "$('movie_form').show()"

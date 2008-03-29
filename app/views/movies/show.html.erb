@@ -1,0 +1,19 @@
+<div id="movie_detail">
+	<h1><%= @movie.title%></h1>
+	<div id="movie_detail_right">
+		<p><b>Summary:</b> <%= @movie.summary || "N/A"%></p>
+		<p><b>Genres:</b> <%= @movie.tags.join(',') || "N/A"%></p>
+		<p><b>Run Time:</b> <%= @movie.runtime || "N/A"%></p>
+		<p><b>Release:</b> <%= @movie.release || "N/A"%></p>
+		<p><b>Director:</b> <%= @movie.director || "N/A"%></p>
+		<%= link_to("Edit", edit_movie_path(@movie))%>
+		<%= link_to("Go to Catalog", movies_path)%>
+	</div>
+	<div style="width: 100px;">
+		<%= image_tag(@movie.image_url, :style => "float: left;")%>
+		<p><b>Rating:</b> <%= @movie.rating || "N/A"%></p>
+
+	</div>
+
+			
+</div>

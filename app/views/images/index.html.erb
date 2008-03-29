@@ -1,0 +1,18 @@
+<h1>Listing images</h1>
+
+<table>
+  <tr>
+  </tr>
+
+<% for images in @images %>
+  <tr>
+    <td><%= link_to 'Show', images %></td>
+    <td><%= link_to 'Edit', edit_images_path(images) %></td>
+    <td><%= link_to 'Destroy', images, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New images', new_images_path %>

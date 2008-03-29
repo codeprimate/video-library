@@ -1,0 +1,5 @@
+if @search_results
+  page.replace_html :search_results, :partial => "movies/search_result", :collection => @search_results
+else
+  page.replace_html :search_results, "ERROR! Try another query."
+end
