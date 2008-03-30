@@ -12,7 +12,7 @@ class Movie < ActiveRecord::Base
       i = Image.new
       i.download_from_url(self.image_url)
       self.image = i
-    end
+    end if image_url
     
     if self.title.match(/^the /i)
       self.title.sub!(/^the /i,'')
