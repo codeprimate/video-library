@@ -10,7 +10,7 @@
 		<%= link_to("Back to Catalog", movies_path)%>
 	</div>
 	<div style="width: 100px;">
-		<%= image_tag(@movie.image.public_filename, :style => "float: left;") if @movie.image%>
+		<%= image_tag(@movie.image.public_filename(:thumb), :style => "float: left;") if @movie.image%>
 		<p><b>Rating:</b> <%= @movie.rating || "N/A"%></p>
 
 	</div>
