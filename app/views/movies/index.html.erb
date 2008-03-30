@@ -1,6 +1,6 @@
 <h1>Movie Catalog</h1>
 
-<div id="tag_cloud">
+<div id="tag_cloud"  class="noprint">
 	<b>Genres:</b>
 	<%= link_to("ALL", movies_path(:tag => "all", :order => @order), :class => "tag4 #{@tag == 'all' ? 'selected' : ''}")%>
 	<% tag_cloud @tags, %w(tag1 tag2 tag3 tag4) do |tag, css_class| %>
@@ -9,37 +9,38 @@
 </div>
 
 <table cellpadding=3 cellspacing=0 style="border-bottom: 5px solid #222;">
-	<tr class="header">
-		<th>
-			<%= @movies.size%>
-		</th>
+	<tr class="header noprint">
+		<th></th>
 		<th>
 			Sort By:
 			<%= link_to("Title", movies_path(:order => 'title', :tag => @tag), :class => (@order == 'title' ? 'selected' : '')) %> |
 			<%= link_to("Rating", movies_path(:order => 'rating', :tag => @tag), :class => (@order == 'rating' ? 'selected' : '')) %> |
 			<%= link_to("New Additions", movies_path(:order => 'newest', :tag => @tag), :class => (@order == 'newest' ? 'selected' : '')) %>
 		</th>
-		<th colspan=2></th>
+		<th class="movie_count" colspan=2>
+			<%= @movies.size%> Movies
+			<%= link_to(image_tag("printer.jpg", :height => 30), movies_path(:use_print_css => true, :order => @order))%>
+		</th></th>
 	</tr>
 	<tr>
-		<td colspan=4 align=center>
+		<td colspan=4 align=center  class="noprint">
 			<%= link_to 'Add Movie', new_movie_path %>
 		</td>
 	</tr>
 <% for movie in @movies %>
   <tr>
 	<tr>
-	<td><%= image_tag(movie.image_url, :height => 75) unless movie.image_url.empty? %></td>
-	<td style="width: 500px;">
+	<td><%= image_tag(movie.image_url, :class => 'large_thumb') unless movie.image_url.empty? %></td>
+	<td class="summary">
 		<%= image_tag("#{movie.quality}.jpg", :style => "float: right;") if movie.quality%>
 		<span class="list_title"><%= movie.title%></span>
 		<span class="list_rating"><%= movie.rating%></span><br/>
 		<span class="list_summary"><%= movie.summary%> (<%= movie.release.to_s(:long)%>) </span><br/>
-		<span class="list_tags">(<%= movie.tags.collect{|t| link_to(t.name, movies_path(:tag => t.name))}.join(', ')%>)</span>
-		<span class="list_added">Added: <%= movie.created_at.to_s(:short) %></span>
+		<span class="list_tags noprint">(<%= movie.tags.collect{|t| link_to(t.name, movies_path(:tag => t.name))}.join(', ')%>)</span>
+		<span class="list_added noprint">Added: <%= movie.created_at.to_s(:short) %></span>
 	</td>
-    <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
-    <td><%= link_to 'Remove', movie, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td class="noprint"><%= link_to 'Edit', edit_movie_path(movie) %></td>
+    <td class="noprint"><%= link_to 'Remove', movie, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

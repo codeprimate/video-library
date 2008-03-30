@@ -35,12 +35,13 @@ ActionController::Routing::Routes.draw do |map|
   
   map.home '/', :controller => 'movies', :action => 'index'
   
-  map.resources :movies
-  
   map.with_options :controller => 'movies' do |m|
+    m.print_view '/movies/print_view', :action => 'print_view'
     m.search_movie '/movies/search', :action => "remote_search_movies"
     m.select_search_result '/movies/search/select', :action => "remote_select_search_result"
   end
+  
+  map.resources :movies
   
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'

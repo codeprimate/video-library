@@ -5,14 +5,13 @@ module Imdb
   require 'uri'
   
   TITLE_RE = /<p><b>Popular Titles<\/b>(.+)<\/p>/i
-  IMDB_URL = "http://www.imdb.com"
+  IMDB_URL = "http://imdb.com"
 
   class Search    
     def initialize(search_string=nil)
       @cached_html = {}
       if search_string
         search_url = IMDB_URL + "/find?s=tt&q=#{URI.escape(search_string)}"
-        puts search_url
         @search_html = open(search_url).read 
         # puts " * Searching IMDB for #{search_string}..."
         @search_results = process_search

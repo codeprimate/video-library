@@ -1,0 +1,17 @@
+<table>
+	<tr>
+		<th>Title</th>
+		<th>Summary</th>
+		<th>Time</th>
+		<th>Quality</th>
+	</tr>
+	<% @movies.each do |movie| %>
+		<tr>
+			<td><%= movie.title%></td>
+			<td><%= movie.summary%></td>
+			<td><%= movie.runtime %></td>
+			<td><%= movie.quality%></td>
+		</tr>
+	<% end %>
+	
+</table>

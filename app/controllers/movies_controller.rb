@@ -10,10 +10,19 @@ class MoviesController < ApplicationController
     else
       @movies = Movie.find(:all, :order => order)
     end
+    @page_title = "Movie Catalog"
+  end
+  
+  def print_view
+    render :layout => 'print_view'
+    @order = sort = (params[:order] || 'title')
+    order = validated_sort(sort)
+    @movies = Movie.find(:all, :order => order)
   end
   
   def new
     @movie = Movie.new
+    @page_title = "Add Movie to Collection"
   end
   
   def destroy
@@ -24,6 +33,7 @@ class MoviesController < ApplicationController
   def edit
     @movie = Movie.find(params[:id])
     @genres = @movie.tag_list
+    @page_title = "Edit Movie Entry"
   end
 
   
@@ -45,11 +55,12 @@ class MoviesController < ApplicationController
     @movie.update_attributes(params[:movie])
     @movie.tag_list = tags
     @movie.save
-    redirect_to movie_path
+    redirect_to movies_path
   end
   
   def show 
     @movie = Movie.find(params[:id])
+    @page_title = @movie.title
   end
   
   def remote_search_movies
