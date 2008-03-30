@@ -30,7 +30,7 @@
 <% for movie in @movies %>
   <tr>
 	<tr>
-	<td><%= image_tag(movie.image.public_filename(:thumb), :class => 'large_thumb') if movie.image %></td>
+	<td><%= link_to(image_tag(movie.image.public_filename(:thumb), :class => 'large_thumb'), movie_path(movie)) if movie.image %></td>
 	<td class="summary">
 		<%= image_tag("#{movie.quality}.jpg", :style => "float: right;") if movie.quality%>
 		<span class="list_title"><%= movie.title%></span>

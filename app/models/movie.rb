@@ -11,6 +11,10 @@ class Movie < ActiveRecord::Base
     i = Image.new
     i.download_from_url(self.image_url)
     self.image = i
+    
+    if self.title.match(/^the /i)
+      self.title.sub!(/^the /i,'')
+    end
   end
   
   def release=(val)
