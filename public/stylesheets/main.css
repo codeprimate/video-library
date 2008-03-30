@@ -91,6 +91,7 @@ div.search_result {
 div.search_result p {
 	font-size: 1em;
 	width: 100px;
+	overflow: hidden;
 }
 
 div#content {
