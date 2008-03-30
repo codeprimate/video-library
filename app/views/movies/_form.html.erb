@@ -34,7 +34,7 @@
 	</p>
 </div>
 <div class="form_left">
-	<center><%= image_tag(@movie.image_url, :style => "padding-right: 10px;") if @movie.image_url%></center>
+	<center><%= image_tag(@movie.image.public_filename, :style => "padding-right: 10px;") if @movie.image%></center>
 </div>
 <div style="clear: both;"><!-- --></div>
 <center>

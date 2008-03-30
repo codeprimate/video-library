@@ -30,12 +30,12 @@
 <% for movie in @movies %>
   <tr>
 	<tr>
-	<td><%= image_tag(movie.image_url, :class => 'large_thumb') unless movie.image_url.empty? %></td>
+	<td><%= image_tag(movie.image.public_filename(:thumb), :class => 'large_thumb') if movie.image %></td>
 	<td class="summary">
 		<%= image_tag("#{movie.quality}.jpg", :style => "float: right;") if movie.quality%>
 		<span class="list_title"><%= movie.title%></span>
 		<span class="list_rating"><%= movie.rating%></span><br/>
-		<span class="list_summary"><%= movie.summary%> (<%= movie.release.to_s(:long)%>) </span><br/>
+		<span class="list_summary"><%= movie.summary%> (<%= movie.release.to_s(:long) if movie.release%>) </span><br/>
 		<span class="list_tags noprint">(<%= movie.tags.collect{|t| link_to(t.name, movies_path(:tag => t.name))}.join(', ')%>)</span>
 		<span class="list_added noprint">Added: <%= movie.created_at.to_s(:short) %></span>
 	</td>

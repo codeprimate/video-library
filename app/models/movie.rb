@@ -7,13 +7,11 @@ class Movie < ActiveRecord::Base
   
   attr_accessor :genres
   
-  # def after_save
-  #   self.tag_list = @my_tagnames
-  # end
-  # 
-  # def genres=(tag_list)
-  #   @my_tagnames = tag_list
-  # end
+  def before_save
+    i = Image.new
+    i.download_from_url(self.image_url)
+    self.image = i
+  end
   
   def release=(val)
     write_attribute(:release, Date.parse(val))
