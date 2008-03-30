@@ -20,7 +20,7 @@ class Movie < ActiveRecord::Base
   end
   
   def release=(val)
-    write_attribute(:release, Date.parse(val))
+    write_attribute(:release, Date.parse(val)) unless (val.nil? or vall == '')
   end
 
 end
