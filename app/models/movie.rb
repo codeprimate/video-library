@@ -9,7 +9,11 @@ class Movie < ActiveRecord::Base
   
   def before_save
     unless image_url.empty?
-      i = Image.new
+      unless self.image
+        i = Image.new
+      else
+        i = self.image
+      end
       i.download_from_url(self.image_url)
       self.image = i
     end 

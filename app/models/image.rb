@@ -18,7 +18,7 @@ class Image < ActiveRecord::Base
   def download_from_url(url)
     @downloaded_file_path = "#{RAILS_ROOT}/tmp/dl-#{rand(1000000)}.jpg"
     downloaded_data = File.new(@downloaded_file_path,"w")
-    if data = open(url).read 
+    if (data = open(url).read) 
       downloaded_data.puts data
     end
     downloaded_data.close
