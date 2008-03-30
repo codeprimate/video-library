@@ -90,6 +90,7 @@ div.search_result {
 
 div.search_result p {
 	font-size: 1em;
+	width: 100px;
 }
 
 div#content {
@@ -187,7 +188,8 @@ div.form_left {
 .tag4 { font-size: 1.6em; }
 
 div#tag_cloud {
-	margin: 10px;
+	width: 500px;
+	margin: 15px auto;
 	font-size: 0.8em;
 	text-align: center;
 }
