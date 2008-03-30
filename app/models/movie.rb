@@ -21,6 +21,8 @@ class Movie < ActiveRecord::Base
     if self.title.match(/^the /i)
       self.title.sub!(/^the /i,'')
     end
+  rescue
+    logger.info "Error downloading image."
   end
   
   def release=(val)
