@@ -8,9 +8,11 @@ class Movie < ActiveRecord::Base
   attr_accessor :genres
   
   def before_save
-    i = Image.new
-    i.download_from_url(self.image_url)
-    self.image = i
+    unless image
+      i = Image.new
+      i.download_from_url(self.image_url)
+      self.image = i
+    end
     
     if self.title.match(/^the /i)
       self.title.sub!(/^the /i,'')
