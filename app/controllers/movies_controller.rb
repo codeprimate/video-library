@@ -67,9 +67,9 @@ class MoviesController < ApplicationController
     @search_string = params[:search][:text]
     i_search = Imdb::Search.new(@search_string)
     @search_results = i_search.movies[0..9]
-    # rescue
-    #   @search_results = false
-    # ensure
+    rescue
+      @search_results = []
+    ensure
     respond_to do |format|
       format.js
     end

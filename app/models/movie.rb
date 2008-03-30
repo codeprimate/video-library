@@ -8,11 +8,11 @@ class Movie < ActiveRecord::Base
   attr_accessor :genres
   
   def before_save
-    unless image
+    unless image_url.empty?
       i = Image.new
       i.download_from_url(self.image_url)
       self.image = i
-    end if image_url
+    end 
     
     if self.title.match(/^the /i)
       self.title.sub!(/^the /i,'')
@@ -20,7 +20,7 @@ class Movie < ActiveRecord::Base
   end
   
   def release=(val)
-    write_attribute(:release, Date.parse(val)) unless (val.nil? or val == '')
+    write_attribute(:release, Date.parse(val)) unless val.empty?
   end
 
 end
