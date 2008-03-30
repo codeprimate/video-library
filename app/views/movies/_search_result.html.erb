@@ -1,5 +1,5 @@
 <div class="search_result">
-	<%= image_tag((search_result[:img]), :class => 'result_thumb', :alt => 'thumbnail') if search_result[:img]%>
+	<%= image_tag((search_result[:img]), :class => 'result_thumb', :alt => '') if search_result[:img]%>
 	<p>
 		<%= link_to_remote(search_result[:name], :url => select_search_result_path(:url => search_result[:url]))%>
 	</p>
