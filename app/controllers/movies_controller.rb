@@ -1,6 +1,8 @@
 class MoviesController < ApplicationController
   layout 'main'
   
+  before_filter :authenticate, :except => [:index]
+  
   def index
     @order = sort = (params[:order] || 'title')
     order = validated_sort(sort)
