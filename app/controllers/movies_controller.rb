@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
   layout 'main'
   
-  before_filter :authenticate, :except => [:index]
+  before_filter :authenticate, :except => [:index, :show]
   
   def index
     @order = sort = (params[:order] || 'title')
