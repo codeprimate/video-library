@@ -7,6 +7,9 @@ h1 {
 	font-size: 1em;
 }
 
+img {
+	border: 0;
+}
 
 img.large_thumb {
 	height: 50px;
