@@ -9,11 +9,13 @@ module Tpb
   class Search    
     def initialize(search_string=nil)
       @cached_html = {}
-      if search_string
-        search_url = TPB_URL + "/search/#{URI.escape(search_string)}/0/7/200"
-        @search_html = open(search_url).read 
-        @search_results = process_search
-      end
+      search(search_string) if search_string
+    end
+  
+    def search(search_string)
+      search_url = TPB_URL + "/search/#{URI.escape(search_string)}/0/7/200"
+      @search_html = open(search_url).read 
+      @search_results = process_search
     end
   
     def movies(index=nil)
@@ -86,6 +88,14 @@ module Tpb
     
     def size
       @movie.size.gsub('&nbsp;',' ')
+    end
+    
+    def seeders
+      @movie.seeders.to_i
+    end
+    
+    def leechers
+      @movie.leechers.to_i
     end
     
     def method_missing(method_name,*args)
