@@ -15,7 +15,6 @@ module Imdb
         @search_html = open(search_url).read 
         # puts " * Searching IMDB for #{search_string}..."
         @search_results = process_search
-
       end
     end
   
