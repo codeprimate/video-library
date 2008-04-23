@@ -1,2 +1,11 @@
-// Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults
+function show_progress() {
+	$('search_button').disabled = true;
+	$('loading_gif').show();
+}
+
+function hide_progress() {
+	$('search_button').disabled = false;
+	$('loading_gif').hide();
+	$('search_text').focus();
+}
+

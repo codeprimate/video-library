@@ -92,8 +92,6 @@ module Imdb
     def get_url(url)
       if (html = @cached_html[url]).nil?
         @cached_html[url] = html = open(url).read
-      else
-        html = open(url).read
       end
       return html
     end

@@ -12,11 +12,13 @@
 </div>
 
 <div style="float: left; width: 250px;">
-	<% form_remote_tag :url => search_movie_url do -%>
+	<% form_remote_tag :url => search_movie_url, :loading => 'show_progress()', :complete => 'hide_progress()' do -%>
 		<p><label for="search"><b>Enter Movie Title:</b></label><br>
 		<%= text_field :search, :text, :style => "width: 200px;" %>
+		<%= image_tag("loading.gif", :id => 'loading_gif', :style => 'display: none;')%>
 		</p>
-		<%= submit_tag "Search", :style => "width: auto;"%>
+		<%= submit_tag "Search", :id => 'search_button', :style => "width: auto;"%> 
+		
 	<% end -%>
 
 	<h3>Search Results</h3>
@@ -25,6 +27,8 @@
 </div>
 
 
-
+<script type="text/javascript" charset="utf-8">
+	$('search_text').focus();
+</script>
 
 
